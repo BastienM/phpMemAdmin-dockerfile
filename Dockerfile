@@ -2,7 +2,7 @@
  
 FROM php:5.6-apache
 
-MAINTAINER Bastien MENNESSON <bastien.mennesson@d2-si.eu>
+LABEL maintainer="Bastien MENNESSON <bastien.mennesson@d2-si.eu>"
 
 ENV AWS_LIBMEMCACHED_URL="https://github.com/awslabs/aws-elasticache-cluster-client-libmemcached.git" \
     LIBMEMCACHED_PATH="/usr/include/libmemcached"    
@@ -43,9 +43,7 @@ WORKDIR /var/www/html
 
 # Installing phpMemAdmin
 RUN composer install --quiet --no-interaction --no-scripts && \
-    cp -R vendor/clickalicious/phpmemadmin/app . && \
-    cp -R vendor/clickalicious/phpmemadmin/bin . && \
-    cp -R vendor/clickalicious/phpmemadmin/web . && \
+    cp -R vendor/clickalicious/phpmemadmin/(app|bin|web) . && \
     chown -R www-data:www-data .
 
 ENTRYPOINT ["/entrypoint.sh"]
