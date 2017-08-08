@@ -47,3 +47,7 @@ RUN composer install --quiet --no-interaction --no-scripts && \
     cp -R vendor/clickalicious/phpmemadmin/bin . && \
     cp -R vendor/clickalicious/phpmemadmin/web . && \
     chown -R www-data:www-data .
+
+ENTRYPOINT ["/entrypoint.sh"]
+
+CMD ["apache2-foreground"]

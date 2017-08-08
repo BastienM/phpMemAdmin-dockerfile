@@ -19,6 +19,7 @@ $ docker run -d \
              -e PASSWORD=<admin_password> \
              -e CLUSTER_NAME=<cluster_name> \
              -e MEMCACHED_HOST=<memcached_ip>
-             -e MEMCACHED_PORT=11211
+             -e MEMCACHED_PORT=11211 \
+             -e TZ=<Your/TimeZone>
              phpmemadmin
 ```
